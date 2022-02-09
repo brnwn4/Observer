@@ -5,6 +5,9 @@ FROM ubuntu:18.04
 ENV DEBIAN_FRONTEND=noninteractive
 RUN echo "APT::Get::Assume-Yes \"true\";" > /etc/apt/apt.conf.d/90assumeyes
 
+# Install AZ-CLI 
+RUN curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 RUN apt-get update \
 && apt-get install -y --no-install-recommends \
         ca-certificates \
